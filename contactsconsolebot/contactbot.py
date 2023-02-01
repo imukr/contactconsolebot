@@ -20,15 +20,18 @@ def hello():
 
 @exepting
 def add(name, number): #add contacts to phone book
-    return contacts[name].append(number)
+    contacts[name].append(number)
+    return f'You added {name} with contact {number}'
 
 @exepting #change phone numbers of contact
 def change(name, numbers):
     if name in contacts.keys():
         contacts[name].clear()
         contacts[name].append(numbers)
+        return f'You changed {name} contact to a {numbers}'
     else:
         contacts[name].append(numbers)
+        return f'You changed {name} contact to a {numbers}'
 
 @exepting #output phone numbers of contact
 def phone(name):
@@ -89,8 +92,7 @@ def main():
     while True:
         user_date = input("Enter set of command: ")
         result = extracting_commands(user_date)
-        if result != None:
-            print(result)
+        print(result)
 
 if __name__ == '__main__':
     main()
